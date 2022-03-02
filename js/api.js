@@ -12,14 +12,14 @@ document.getElementById('button-addon2').addEventListener('click', function () {
         // .then(json => console.log(json))
         .then(data => displayPhone(data.data))
 })
-
+// details function
 function detailse(data) {
     fetch(`https://openapi.programming-hero.com/api/phone/${data}`)
         .then(response => response.json())
         //.then(json => console.log(json))
         .then(data => displayDetaile(data.data))
 
-
+    // display function
     function displayDetaile(data) {
         const detailsId = document.getElementById('details');
         for (const details in data)
@@ -38,7 +38,7 @@ function detailse(data) {
 }
 
 
-
+// display phone function
 function displayPhone(data) {
     // const phone = phones.brand;
     const cardId = document.getElementById('card-id');
