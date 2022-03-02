@@ -19,12 +19,22 @@ document.getElementById('button-addon2').addEventListener('click', function () {
 function displayPhone(data) {
     // const phone = phones.brand;
     const ul = document.getElementById('ul');
-    for (const user of data)
-        console.log(user.phone_name);
-    const li = document.createElement('li');
+    for (const user of data) {
+        const div = document.createElement('div');
+        div.classList.add('col')
+        div.innerHTML = `
+        
+                <div class="card">
+                    <img src=${"user.image"} class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">${user.name}</h5>
+                        <p class="card-text">${user.brand}</p>
+                    </div>
+                </div>
+            
+        `
+    }
 
-    li.innerText = `name : ${user.phone_name} email : ${user.brand}`;
-    ul.appendChild(li);
 }
 
 
