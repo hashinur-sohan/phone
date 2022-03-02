@@ -11,17 +11,33 @@ document.getElementById('button-addon2').addEventListener('click', function () {
         .then(response => response.json())
         // .then(json => console.log(json))
         .then(data => displayPhone(data.data))
-
-
 })
 
 function detailse(data) {
     fetch(`https://openapi.programming-hero.com/api/phone/${data}`)
         .then(response => response.json())
         //.then(json => console.log(json))
-        .then(data => displayPhone(data))
-    console.log(data);
+        .then(data => displayDetaile(data.data))
+
+
+    function displayDetaile(data) {
+        const detailsId = document.getElementById('details');
+        for (const details in data)
+            console.log(`${details} ${data[details]}`);
+        const detailsDiv = document.createElement('div');
+        detailsDiv.classList.add('mx-auto');
+        detailsDiv.innerHTML = `
+        <img src="${data.image}" alt="">
+        <p>Phone Name: ${data.name}</p>
+        <p>Brand Name: ${data.brand}</p>
+        <p>Slug Id: ${data.slug}</p>
+        `
+        detailsId.appendChild(detailsDiv);
+    }
+
 }
+
+
 
 function displayPhone(data) {
     // const phone = phones.brand;
